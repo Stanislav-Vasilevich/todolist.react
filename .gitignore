@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+todolist/node_modules
+todolist_1_1/node_modules
 /.pnp
 .pnp.js
 
