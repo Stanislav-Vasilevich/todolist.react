@@ -1,7 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
 todolist/node_modules
 todolist_1_1/node_modules
 /.pnp
