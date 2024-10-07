@@ -1,5 +1,5 @@
 import './App.css';
-import Todolist from "./Components/Todolist/Todolist";
+import Todolist from "./components/Todolist/Todolist";
 import {useState} from "react";
 
 export type TaskType = {
@@ -8,7 +8,7 @@ export type TaskType = {
 	isDone: boolean
 }
 
-export type FilterValuesType = 'all' | 'active' | 'completed';
+export type FilterValuesType = 'All' | 'Active' | 'Completed';
 
 function App() {
 	const [tasks, setTasks] = useState<Array<TaskType>>([
@@ -19,7 +19,7 @@ function App() {
 		{ id: 5, title: 'Typescript', isDone: false },
 		{ id: 6, title: 'RTK query', isDone: false },
 	]);
-	const [filter, setFilter] = useState<FilterValuesType>('all');
+	const [filter, setFilter] = useState<FilterValuesType>('All');
 
 	const removeTask = (taskId: number) => {
 		const newTasks = tasks.filter(t => t.id !== taskId);
@@ -31,11 +31,11 @@ function App() {
 	}
 
 	let filteredTasks = tasks;
-	if(filter === 'active') {
+	if(filter === 'Active') {
 		filteredTasks = tasks.filter(t => !t.isDone);
 	}
 
-	if(filter === 'completed') {
+	if(filter === 'Completed') {
 		filteredTasks = tasks.filter(t => t.isDone);
 	}
 

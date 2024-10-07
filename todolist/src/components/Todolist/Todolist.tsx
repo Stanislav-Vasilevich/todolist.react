@@ -1,4 +1,5 @@
 import {FilterValuesType, TaskType} from "../../App";
+import s from './Todolist.module.css';
 import Button from "../Button/Button";
 
 type PropsType = {
@@ -12,8 +13,9 @@ type PropsType = {
 const Todolist = ({title, tasks, date, removeTask, changeFilter}: PropsType) => {
 	return (
 		<div>
-			<h3>{title}</h3>
-			<div>
+			<h3 className={s.title}>{title}</h3>
+			<div className={s.date}>{date}</div>
+			<div className={s.input}>
 				<input/>
 				<button>+</button>
 			</div>
@@ -31,11 +33,10 @@ const Todolist = ({title, tasks, date, removeTask, changeFilter}: PropsType) => 
 						})
 				}
 			</ul>
-			<div>{date}</div>
 			<div>
-				<Button name={'all'} changeFilter={() => changeFilter('all')}/>
-				<Button name={'active'} changeFilter={() => changeFilter('active')}/>
-				<Button name={'completed'} changeFilter={() => changeFilter('completed')}/>
+				<Button name={'All'} changeFilter={() => changeFilter('All')}/>
+				<Button name={'Active'} changeFilter={() => changeFilter('Active')}/>
+				<Button name={'Completed'} changeFilter={() => changeFilter('Completed')}/>
 			</div>
 		</div>
 	);
