@@ -1,4 +1,4 @@
-import {FilterValuesType, TaskType} from "../../App";
+import {FilterValuesType, TaskType} from "../App/App";
 import s from './Todolist.module.css';
 import Button from "../Button/Button";
 
@@ -21,8 +21,8 @@ const Todolist = ({title, tasks, date, removeTask, changeFilter}: PropsType) => 
 			</div>
 			<ul>
 				{
-					tasks.length === 0
-						? <div>-- no tasks --</div>
+					!tasks.length
+						? <div className={s.not}>-- no tasks --</div>
 						: tasks.map(t => {
 							return (
 								<li key={t.id}>
