@@ -1,7 +1,10 @@
+import {FilterValuesType} from "../../App";
+
 type PropsType = {
-	name: string
+	name: FilterValuesType
+	changeFilter: (value: FilterValuesType) => void
 }
 
-const Button = ({name}: PropsType) => <button>{name}</button>
+const Button = ({name, changeFilter}: PropsType) => <button onClick={() => changeFilter(name)}>{name}</button>
 
 export default Button;
