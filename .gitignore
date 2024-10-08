@@ -3,6 +3,7 @@
 # dependencies
 todolist/node_modules
 todolist_1_1/node_modules
+todolist_2_1/node_modules
 /.pnp
 .pnp.js
 
