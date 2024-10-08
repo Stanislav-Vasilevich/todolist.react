@@ -7,10 +7,42 @@
 	margin: 0 0 10px;
 }
 
+.inputBlock {
+	position: relative;
+	margin: 0 0 20px;
+}
+
 .input {
-	margin: 0 0 10px;
+	outline: none;
+	padding: 4px;
 }
 
 .not {
 	color: grey;
+}
+
+.error {
+	border: 1px solid red;
+	outline: none;
+	padding: 5px;
+}
+
+.errorMessage {
+	position: absolute;
+	font-size: 12px;
+	bottom: -16px;
+	left: 2px;
+	color: red;
+}
+
+.list {
+	padding: 0 0 0 15px;
+}
+
+.text {
+	font-size: 18px;
+}
+
+.hidden {
+	opacity: .5;
 }

@@ -1,0 +1,14 @@
+.button {
+  outline: none;
+  border: 1px solid grey;
+  padding: 5px 10px;
+}
+
+.active {
+  background: white;
+  padding: 5px 10px;
+}
+
+.button:hover {
+  background: wheat;
+}
