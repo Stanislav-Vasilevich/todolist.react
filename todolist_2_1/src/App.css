@@ -6,39 +6,19 @@
 .App > div {
   margin-right: 50px;
 }
-.todolist {
-  background-color: burlywood;
-  border: 2px solid darkgrey;
-  border-radius: 5px;
-  padding: 15px;
-}
-
-.title {
-  display: inline-block;
-  margin: 0 5px 15px 0;
-}
-
-.button-close {
-  cursor: pointer;
-}
-
-.task {
-  font-weight: bold;
-}
-.task-done {
-  text-decoration: line-through;
-  opacity: 0.5;
-}
-
-.btn-filter-active {
-  background-color: brown;
-  border: 2px solid brown;
-  border-radius: 2px;
-  color: white
-
-}
 
 .error {
-  border: 2px solid red;
-  outline: none;
+  border: red 1px solid;
+}
+
+.error-message {
+  color: red;
+}
+
+.active-filter {
+  background-color: lightgreen;
+}
+
+.is-done {
+  opacity: 0.5;
 }
