@@ -1,5 +1,6 @@
 import {Button} from "./Button";
 import {ChangeEvent, KeyboardEvent, useState} from "react";
+import {TextField} from "@mui/material";
 
 
 type PropsType = {
@@ -7,34 +8,43 @@ type PropsType = {
 }
 
 export const AddItemForm = ({addItem}: PropsType) => {
-
-	const [title, setTitle] = useState('')
-	const [error, setError] = useState<string | null>(null)
+	const [label, setLabel] = useState('enter text');
+	const [value, setValue] = useState('');
+	const [error, setError] = useState<boolean>(false)
 
 	const addItemHandler = () => {
-		if (title.trim() !== '') {
-			addItem(title.trim())
-			setTitle('')
+		if (value.trim()) {
+			setValue('')
+			addItem(value.trim())
 		} else {
-			setError('Title is required')
+			setLabel('error')
+			setError(true)
 		}
 	}
 
 	const changeItemHandler = (event: ChangeEvent<HTMLInputElement>) => {
-		setTitle(event.currentTarget.value)
+		setValue(event.currentTarget.value)
+		setLabel('enter text')
 	}
 
 	const addItemOnKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-		setError(null)
+		setError(false)
+
 		if (event.key === 'Enter') {
 			addItemHandler()
 		}
 	}
+
 	return (
 		<div>
-			<input
+			<TextField
+				error={error}
+				label={label}
+				id="outlined-size-small"
+				size="small"
+				defaultValue={value}
+				helperText={error && 'Incorrect entry'}
 				className={error ? 'error' : ''}
-				value={title}
 				onChange={changeItemHandler}
 				onKeyUp={addItemOnKeyUpHandler}
 			/>

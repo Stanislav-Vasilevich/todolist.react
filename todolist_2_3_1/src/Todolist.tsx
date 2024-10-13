@@ -87,11 +87,11 @@ export const Todolist = (props: PropsType) => {
 					</ul>
 			}
 			<div>
-				<Button variant={'contained'} className={filter === 'all' ? 'active-filter' : ''} title={'All'}
+				<Button variant={'outlined'} color={filter === 'all' ? 'primary' : 'inherit'} style={{margin: '2px'}} title={'All'}
 								onClick={() => changeFilterTasksHandler('all')}>All</Button>
-				<Button variant={'contained'} className={filter === 'active' ? 'active-filter' : ''} title={'Active'}
+				<Button variant={'outlined'} color={filter === 'active' ? 'primary' : 'inherit'} style={{margin: '2px'}} title={'Active'}
 								onClick={() => changeFilterTasksHandler('active')}>Active</Button>
-				<Button variant={'contained'} className={filter === 'completed' ? 'active-filter' : ''} title={'Completed'}
+				<Button variant={'outlined'} color={filter === 'completed' ? 'primary' : 'inherit'} style={{margin: '2px'}} title={'Completed'}
 								onClick={() => changeFilterTasksHandler('completed')}>Completed</Button>
 			</div>
 		</div>
