@@ -1,7 +1,7 @@
-import {Button} from "./Button";
 import {ChangeEvent, KeyboardEvent, useState} from "react";
 import {TextField} from "@mui/material";
-
+import {PlaylistAddCheck} from '@mui/icons-material';
+import Button from '@mui/material/Button';
 
 type PropsType = {
 	addItem: (title:string) => void
@@ -44,11 +44,14 @@ export const AddItemForm = ({addItem}: PropsType) => {
 				size="small"
 				defaultValue={value}
 				helperText={error && 'Incorrect entry'}
-				className={error ? 'error' : ''}
 				onChange={changeItemHandler}
 				onKeyUp={addItemOnKeyUpHandler}
+				style={{margin: '0 2px 0 0'}}
 			/>
-			<Button title={'+'} onClick={addItemHandler}/>
+
+			<Button variant="outlined" startIcon={<PlaylistAddCheck />} onClick={addItemHandler} style={{padding: '6.5px 15px'}}>
+				Add
+			</Button>
 			{error && <div className={'error-message'}>{error}</div>}
 		</div>
 	)

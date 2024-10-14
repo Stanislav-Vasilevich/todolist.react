@@ -4,6 +4,7 @@ import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
 import {Button, IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
+import {PlaylistAddCheck} from '@mui/icons-material';
 
 type PropsType = {
 	title: string
