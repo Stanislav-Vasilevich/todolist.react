@@ -1,11 +1,72 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# общий проект
 todolist/node_modules
+# понедельник
 todolist_1_1/node_modules
-todolist_2_1_0/node_modules
+todolist_1_2/node_modules
+todolist_1_3/node_modules
+todolist_1_4/node_modules
+todolist_1_1_0/node_modules
+todolist_1_2_0/node_modules
+todolist_1_3_0/node_modules
+todolist_1_4_0/node_modules
+todolist_1_1_1/node_modules
+todolist_1_2_1/node_modules
+todolist_1_3_1/node_modules
+todolist_1_4_1/node_modules
+# вторник
 todolist_2_1/node_modules
+todolist_2_2/node_modules
+todolist_2_3/node_modules
+todolist_2_4/node_modules
+todolist_2_1_0/node_modules
+todolist_2_2_0/node_modules
+todolist_2_3_0/node_modules
+todolist_2_4_0/node_modules
+todolist_2_1_1/node_modules
 todolist_2_2_1/node_modules
+todolist_2_3_1/node_modules
+todolist_2_4_1/node_modules
+# среда
+todolist_3_1/node_modules
+todolist_3_2/node_modules
+todolist_3_3/node_modules
+todolist_3_4/node_modules
+todolist_3_1_0/node_modules
+todolist_3_2_0/node_modules
+todolist_3_3_0/node_modules
+todolist_3_4_0/node_modules
+todolist_3_1_1/node_modules
+todolist_3_2_1/node_modules
+todolist_3_3_1/node_modules
+todolist_3_4_1/node_modules
+# четверг
+todolist_4_1/node_modules
+todolist_4_2/node_modules
+todolist_4_3/node_modules
+todolist_4_4/node_modules
+todolist_4_1_0/node_modules
+todolist_4_2_0/node_modules
+todolist_4_3_0/node_modules
+todolist_4_4_0/node_modules
+todolist_4_1_1/node_modules
+todolist_4_2_1/node_modules
+todolist_4_3_1/node_modules
+todolist_4_4_1/node_modules
+# пятница
+todolist_5_1/node_modules
+todolist_5_2/node_modules
+todolist_5_3/node_modules
+todolist_5_4/node_modules
+todolist_5_1_0/node_modules
+todolist_5_2_0/node_modules
+todolist_5_3_0/node_modules
+todolist_5_4_0/node_modules
+todolist_5_1_1/node_modules
+todolist_5_2_1/node_modules
+todolist_5_3_1/node_modules
+todolist_5_4_1/node_modules
 /.pnp
 .pnp.js
 
