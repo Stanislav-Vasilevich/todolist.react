@@ -1,8 +1,8 @@
 import '../../App.css';
-import {Todolist} from "../../Todolist";
+import {Todolist} from "../Todolist/Todolist";
 import {useState} from "react";
 import {v1} from "uuid";
-import {AddItemForm} from "../../AddItemForm";
+import {AddItemForm} from "../AddItemForm/AddItemForm";
 
 export type TaskType = {
 	id: string
