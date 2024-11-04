@@ -1,28 +1,18 @@
-.App {
-  padding: 30px;
+.list {
   display: flex;
+  gap: 50px;
+  padding: 20px;
 }
 
-.App > div {
-  margin-right: 50px;
+.item {
+  padding: 20px;
 }
 
-.error {
-  border: red 1px solid;
-}
-
-.error-message {
-  color: red;
-}
-
-.buttonFilterActive {
-  background-color: lightgreen;
-}
-
-.is-done {
-  opacity: 0.5;
-}
 .todolist-title-container {
   display: flex;
   align-items: center;
+}
+
+.input {
+  margin: 0 0 20px;
 }

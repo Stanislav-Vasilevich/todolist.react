@@ -7,7 +7,7 @@ type PropsType = {
 	addItem: (title:string) => void
 }
 
-export const AddItemForm = ({addItem}: PropsType) => {
+export const AddItemForm = (props: PropsType) => {
 	const [label, setLabel] = useState('enter text');
 	const [value, setValue] = useState('');
 	const [error, setError] = useState<boolean>(false)
@@ -15,7 +15,7 @@ export const AddItemForm = ({addItem}: PropsType) => {
 	const addItemHandler = () => {
 		if (value.trim()) {
 			setValue('')
-			addItem(value.trim())
+			props.addItem(value.trim())
 		} else {
 			setLabel('error')
 			setError(true)
