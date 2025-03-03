@@ -1,0 +1,10 @@
+.button {
+  background: transparent;
+  outline: none;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.active {
+  background: greenyellow;
+}

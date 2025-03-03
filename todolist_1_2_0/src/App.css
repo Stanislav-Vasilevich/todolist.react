@@ -1,12 +1,12 @@
-.App {
+.app {
   padding: 30px;
   display: flex;
 }
 
-.App > div {
+.app > div {
   margin-right: 50px;
 }
 
-.active {
-  background: red;
+span {
+  font-size: 14px;
 }
