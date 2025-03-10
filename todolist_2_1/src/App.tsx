@@ -1,6 +1,5 @@
 import './App.css';
 import {Todolist} from "./Todolist";
-import {useState} from "react";
 import {v1} from "uuid";
 
 export type FilterValuesType = 'all' | 'active' | 'completed';
