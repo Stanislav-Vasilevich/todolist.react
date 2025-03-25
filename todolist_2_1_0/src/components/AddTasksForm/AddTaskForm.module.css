@@ -1,0 +1,104 @@
+.block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  align-items: start;
+  margin: 0 0 5px;
+  transition: .4s all;
+}
+
+.input {
+  height: 20px;
+  box-sizing: border-box;
+  outline: none;
+  border-top: 1px solid grey;
+  border-right: none;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  border-radius: 2px 0 0 2px;
+  padding: 5px 8px;
+}
+
+.input::placeholder {
+  font-size: 10px;
+}
+
+.inputActive {
+  border: 1px solid red;
+}
+
+.form_active {
+  margin: 0 0 15px;
+}
+
+.button {
+  width: 30px;
+  height: 20px;
+  border-top: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  background: #eeeeee;
+  padding: 0 5px;
+}
+
+.button:disabled {
+  background: white;
+  cursor: no-drop;
+}
+
+.button:disabled:hover {
+  background: white;
+  outline: none;
+}
+
+.button:hover {
+  background: #c9c9c9;
+  outline: none;
+}
+
+.button:focus {
+  outline: 0;
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+
+.lengthText {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  font-size: 8px;
+  color: grey;
+  opacity: 0;
+  animation: show 1s forwards;
+}
+
+.errorText {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  font-size: 8px;
+  color: red;
+}
+
+.length {
+  font-size: 10px;
+}
+
+.lengthError {
+  font-size: 10px;
+  color: red;
+}
