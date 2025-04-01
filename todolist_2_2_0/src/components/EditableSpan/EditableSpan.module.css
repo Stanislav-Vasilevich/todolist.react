@@ -1,0 +1,8 @@
+.title {
+  line-height: 1;
+}
+
+.active {
+  color: #767676;
+  text-decoration: line-through;
+}
