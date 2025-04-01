@@ -1,7 +1,22 @@
 .app {
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   padding: 30px;
+}
+
+.block {
+  display: block;
+  background: #f5f5f5;
+  border-radius: 20px;
+  border: 1px solid #dfdfdf;
+  padding: 30px 60px 10px;
+  margin: 0 0 20px;
+}
+
+.todolists {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .app > div {
