@@ -1,0 +1,12 @@
+.select {
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 2px;
+}
