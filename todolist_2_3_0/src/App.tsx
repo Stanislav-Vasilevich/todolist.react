@@ -12,23 +12,26 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import {NavButton} from './components/NavButton/NavButton';
+import {paper} from './Todolist.styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Switch from '@mui/material/Switch'
+import CssBaseline from '@mui/material/CssBaseline'
 
 export type TaskType = {
   id: string
   title: string
   isDone: boolean
 }
-
 export type FilteredTaskType = 'all' | 'active' | 'completed';
 type TodolistType = {
   id: string
   title: string
   filter: FilteredTaskType
 }
-
 type TasksType = {
   [key: string]: Array<TaskType>
 }
+type ThemeMode = 'dark' | 'light'
 
 const todolist_1 = v1();
 const todolist_2 = v1();
@@ -54,6 +57,17 @@ function App() {
       {id: v1(), title: 'Meet', isDone: true},
       {id: v1(), title: 'Fish', isDone: false},
     ]
+  });
+
+  const [themeMode, setThemeMode] = useState<ThemeMode>('light')
+
+  const theme = createTheme({
+    palette: {
+      mode: themeMode,
+      primary: {
+        main: '#087EA4',
+      },
+    },
   });
 
   const filterTasks = (todolistId: string, filter: FilteredTaskType) => {
@@ -101,9 +115,14 @@ function App() {
     setTodolist(todolist.map(t => t.id === todolistId ? {...t, title: newTitle} : t));
   }
 
+  const changeMode = () => {
+    setThemeMode(themeMode === 'light' ? 'dark' : 'light')
+  }
+
   return (
-    <div className="app">
-      <AppBar position="static">
+    <ThemeProvider className="app" theme={theme}>
+      <CssBaseline />
+      <AppBar position="static" sx={{mb: '30px'}}>
         <Toolbar>
           <Container maxWidth="lg" sx={{display: 'flex', justifyContent: 'space-between'}}>
             <IconButton color="inherit">
@@ -112,39 +131,35 @@ function App() {
             <Box>
               <NavButton>Sign in</NavButton>
               <NavButton>Sign up</NavButton>
-              <NavButton background={'dodgerblue'}>Faq</NavButton>
+              <NavButton background={theme.palette.primary.dark}>Faq</NavButton>
+              <Switch color={'default'} onChange={changeMode} />
             </Box>
           </Container>
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="lg">
-        <Grid container>
+      <Container maxWidth={'lg'}>
+        <Grid sx={{mb: '30px'}}>
           <h1 className="title">Добавить новый todolist</h1>
+          <AddItemForm minCharter={2} maxCharter={20} createItem={createTodolist} />
         </Grid>
 
         <Grid container spacing={4}>
-          <div className="block">
-            <AddItemForm minCharter={2} maxCharter={20} createItem={createTodolist}/>
-          </div>
-          <Box sx={{display: 'flex', gap: '20px'}}>
-            {
+          {
+            todolist.map(t => {
+              let filteredTasks: TaskType[] = tasks[t.id];
 
-              todolist.map(t => {
-                let filteredTasks: TaskType[] = tasks[t.id];
+              if (t.filter === 'active') {
+                filteredTasks = tasks[t.id].filter(t => !t.isDone);
+              }
+              if (t.filter === 'completed') {
+                filteredTasks = tasks[t.id].filter(t => t.isDone);
+              }
 
-                if (t.filter === 'active') {
-                  filteredTasks = tasks[t.id].filter(t => !t.isDone);
-                }
-
-                if (t.filter === 'completed') {
-                  filteredTasks = tasks[t.id].filter(t => t.isDone);
-                }
-
-                return (
-                  <Paper elevation={8} sx={{'border-radius': '20px',}}>
+              return (
+                <Grid key={t.id}>
+                  <Paper sx={paper}>
                     <Todolist
-                      key={t.id}
                       id={t.id}
                       title={t.title}
                       tasks={filteredTasks}
@@ -158,15 +173,13 @@ function App() {
                       changeTodolistTitle={changeTodolistTitle}
                     />
                   </Paper>
-                )
-              })
-
-            }
-          </Box>
-          <Paper/>
+                </Grid>
+              )
+            })
+          }
         </Grid>
       </Container>
-    </div>
+    </ThemeProvider>
   )
 }
 

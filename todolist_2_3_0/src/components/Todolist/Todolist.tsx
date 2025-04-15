@@ -8,6 +8,8 @@ import s from './Todolist.module.css';
 import FilterSelect from '../FilterSelect/FilterSelect';
 import AddItemForm from '../AddItemForm/AddItemForm';
 import {useState} from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 
 type PropsType = {
   id: string
@@ -39,9 +41,26 @@ const Todolist: React.FC<PropsType> = (
   }) => {
   const [editMode, setEditMode] = useState(false);
 
+  const changeTodolistTitleHandler = () => {
+    if(!editMode) {
+      deleteTodolist(id);
+    }
+
+    setEditMode(false);
+  }
+
   return (
     <div className={s.todolist}>
-      <TodolistTitle todolistId={id} title={title} deleteTodolist={deleteTodolist} changeTodolistTitle={changeTodolistTitle} editMode={editMode} setEditMode={setEditMode}/>
+      <div className={s.head}>
+        <TodolistTitle todolistId={id}
+                       title={title}
+                       deleteTodolist={deleteTodolist}
+                       changeTodolistTitle={changeTodolistTitle}
+                       setEditMode={setEditMode}/>
+        <IconButton>
+          <DeleteIcon onClick={changeTodolistTitleHandler}/>
+        </IconButton>
+      </div>
       <AddItemForm todolistId={id} createItem={createTask} minCharter={2} maxCharter={20}/>
       <FilterSelect todolistId={id} filterTasks={filterTasks} filter={filter}/>
       <TasksList

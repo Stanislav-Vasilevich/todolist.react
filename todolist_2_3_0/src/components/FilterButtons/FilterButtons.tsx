@@ -1,6 +1,7 @@
 import {FilteredTaskType} from '../../App';
 import s from './FilterButtons.module.css';
 import {Button} from '@mui/material';
+import Box from '@mui/material/Box';
 
 type PropsType = {
   todolistId: string
@@ -18,32 +19,26 @@ const FilterButtons = (props: PropsType) => {
   const onClickHandlerCompleted = () => props.filterTasks(props.todolistId, 'completed');
 
   return (
-    <div className={s.buttons}>
-      <Button variant={props.filter === 'all' ? 'contained' : "outlined"}
+    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Button variant={props.filter === 'all' ? 'outlined' : "text"}
               color={props.filter === 'all' ? "secondary" : "primary"}
               size="small"
               disableElevation
               className={buttonActiveAll}
-              onClick={onClickHandlerAll}>
-        All
-      </Button>
-      <Button variant={props.filter === 'active' ? 'contained' : "outlined"}
+              onClick={onClickHandlerAll}>All</Button>
+      <Button variant={props.filter === 'active' ? 'outlined' : "text"}
               size="small"
               color={props.filter === 'active' ? "secondary" : "primary"}
               disableElevation
               className={buttonActiveActive}
-              onClick={onClickHandlerActive}>
-        Active
-      </Button>
-      <Button variant={props.filter === 'completed' ? 'contained' : "outlined"}
+              onClick={onClickHandlerActive}>Active</Button>
+      <Button variant={props.filter === 'completed' ? 'outlined' : "text"}
               size="small"
               color={props.filter === 'completed' ? "secondary" : "primary"}
               disableElevation
               className={buttonActiveCompleted}
-              onClick={onClickHandlerCompleted}>
-        Completed
-      </Button>
-    </div>
+              onClick={onClickHandlerCompleted}>Completed</Button>
+    </Box>
   );
 };
 

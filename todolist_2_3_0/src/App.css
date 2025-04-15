@@ -5,20 +5,10 @@
   flex-wrap: wrap;
 }
 
-.block {
-  margin: 0 0 50px;
-}
-
 .title {
   font-size: 20px;
   margin: 0 0 10px;
 }
-
-/*.todolists {*/
-/*  display: flex;*/
-/*  flex-wrap: wrap;*/
-/*  gap: 20px;*/
-/*}*/
 
 span {
   font-size: 14px;

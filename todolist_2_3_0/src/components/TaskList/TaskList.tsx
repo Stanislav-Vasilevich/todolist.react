@@ -1,11 +1,12 @@
 import {ChangeEvent, JSX} from 'react';
 import {TaskType} from '../../App';
-import s from './TaksList.module.css';
 import EditableSpan from '../EditableSpan/EditableSpan';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Checkbox from '@mui/material/Checkbox';
+import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import {getListItemSx} from '../../Todolist.styles';
 
 type PropsType = {
   todolistId: string
@@ -30,12 +31,13 @@ const TaskList = (props: PropsType) => {
     }
 
     return (
-      <ListItem key={i.id} disablePadding>
-        <Checkbox size="small" defaultChecked={i.isDone} onChange={changeTaskStatusHandler}/>
-
-        <EditableSpan classes={i.isDone} title={i.title}/>
-        <IconButton aria-label="delete">
-          <DeleteIcon className={s.button} fontSize="inherit" onClick={changeTaskTitleHandler} />
+      <ListItem key={i.id} disablePadding sx={getListItemSx(i.isDone)}> {/* disablePadding - убирает отступы у списка */}
+        <div>
+          <Checkbox checked={i.isDone} onChange={changeTaskStatusHandler}/>
+          <EditableSpan classes={i.isDone} title={i.title}/>
+        </div>
+        <IconButton>
+          <DeleteIcon onClick={changeTaskTitleHandler}/>
         </IconButton>
       </ListItem>
     )
@@ -43,7 +45,7 @@ const TaskList = (props: PropsType) => {
 
   return props.tasks.length === 0
     ? <span>Ваш список пуст!</span>
-    : <ul className={s.list}>{listItems}</ul>
+    : <List>{listItems}</List>
 };
 
 export default TaskList;

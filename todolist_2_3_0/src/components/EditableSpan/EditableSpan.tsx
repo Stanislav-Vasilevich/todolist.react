@@ -41,8 +41,16 @@ const EditableSpan: React.FC<PropsType> = ({classes, title, isEdit, setEditMode}
 
   return (
     isEditMode
-      ? <TextField id="standard-basic" label="Standard" variant="standard" onBlur={offEditMode} value={value} onChange={onChangeTitle} onKeyPress={onEnterKeyPress} autoFocus/>
-      : <span className={classes ? `${s.title} ${s.active}` : s.title} onDoubleClick={onEditMode}>{value}</span>
+      ? <TextField id="standard-basic"
+                   label="Standard"
+                   variant="standard"
+                   onBlur={offEditMode}
+                   value={value}
+                   onChange={onChangeTitle}
+                   onKeyPress={onEnterKeyPress}
+                   autoFocus/>
+      : <span className={classes ? `${s.title} ${s.active}` : s.title}
+              onDoubleClick={onEditMode}>{value}</span>
   )
 };
 
