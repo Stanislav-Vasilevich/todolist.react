@@ -1,0 +1,20 @@
+.button {
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid #c6c6c6;
+}
+
+.active {
+  background: #d8d8d8;
+  border: 1px solid grey;
+}
+
+.active:focus, .active:active, .active:hover, .button:focus, .button.active, .button:hover {
+  outline: 0;
+}
+
+.button:hover {
+  border: 1px solid grey;
+}

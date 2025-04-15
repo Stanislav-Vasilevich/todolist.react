@@ -1,0 +1,9 @@
+.title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.active {
+  color: #767676;
+  text-decoration: line-through;
+}

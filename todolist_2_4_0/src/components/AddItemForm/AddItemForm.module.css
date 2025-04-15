@@ -1,0 +1,71 @@
+.block {
+  height: max-content;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  align-items: start;
+  margin: 0 0 5px;
+  transition: .4s all;
+}
+
+.input {
+  height: 20px;
+  box-sizing: border-box;
+  outline: none;
+  border-top: 1px solid grey;
+  border-right: none;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  border-radius: 2px 0 0 2px;
+  padding: 5px 8px;
+  margin: 0 0 50px;
+}
+
+.input::placeholder {
+  font-size: 10px;
+}
+
+.inputActive {
+  border: 1px solid red;
+}
+
+.form_active {
+  margin: 0 0 15px;
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+
+.lengthText {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  font-size: 8px;
+  color: grey;
+  opacity: 0;
+  animation: show 1s forwards;
+}
+
+.errorText {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  font-size: 8px;
+  color: red;
+}
+
+.length {
+  font-size: 10px;
+}
+
+.lengthError {
+  font-size: 10px;
+  color: red;
+}

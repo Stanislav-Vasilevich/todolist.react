@@ -1,0 +1,9 @@
+.todolist {
+  border-radius: 20px;
+  padding: 30px 60px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+}
