@@ -1,4 +1,4 @@
-import {v1} from 'uuid'
+import {v1} from 'uuid';
 import {FilteredTaskType, TodolistType} from '../App';
 import { expect, test, beforeEach } from 'vitest';
 import {
@@ -18,8 +18,8 @@ let filter: FilteredTaskType
 
 // restart data
 beforeEach(() => {
-  todolistId1 = v1()
-  todolistId2 = v1()
+  todolistId1 = v1();
+  todolistId2 = v1();
 
   startState = [
     { id: todolistId1, title: 'What to learn', filter: 'all' },
