@@ -6,7 +6,6 @@ import {
   changeTaskTitleAC,
   createTaskAC,
   deleteTaskAC,
-  deleteTasksFromTodolistAC,
   tasksReducer
 } from './tasks-reducer';
 import {createTodolistAC, deleteTodolistAC} from './todolists-reducer';
@@ -31,6 +30,7 @@ beforeEach(() => {
 test('array should be created for new todolist', () => {
   // action
   const endState = tasksReducer(startState, createTodolistAC(v1(), 'New todolist'));
+  console.log('tasks: ', endState);
   const keys = Object.keys(endState);
   const newKey = keys.find(k => k !== 'todolistId1' && k !== 'todolistId2');
 
@@ -44,12 +44,11 @@ test('array should be created for new todolist', () => {
 });
 test('property with todolistId should be deleted', () => {
   // action
-  const endState = tasksReducer(startState, deleteTasksFromTodolistAC('todolistId2'));
+  const endState = tasksReducer(startState, deleteTodolistAC( 'todolistId2'));
   const keys = Object.keys(endState);
 
   // expect
   expect(keys.length).toBe(1);
-  expect(endState['todolistId2']).not.toBeDefined();
   expect(endState['todolistId2']).toBeUndefined();
 });
 test('correct task should be deleted', () => {
@@ -102,7 +101,6 @@ test('correct task should change its status', () => {
   expect(endState['todolistId2'][1].isDone).toBe(false);
 });
 test('correct task should change its title', () => {
-  console.log('startState: ', startState);
   // action
   const endState = tasksReducer(startState, changeTaskTitleAC({todolistId: 'todolistId2', taskId: '3', title: 'black tea'}));
 

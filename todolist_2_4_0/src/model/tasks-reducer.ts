@@ -1,9 +1,9 @@
 import {TasksType} from '../App';
-import {createTodolistAC} from './todolists-reducer';
+import {createTodolistAC, deleteTodolistAC} from './todolists-reducer';
 import {v1} from 'uuid';
 
 type ActionsType =
-  ReturnType<typeof deleteTasksFromTodolistAC>
+  ReturnType<typeof deleteTodolistAC>
   | ReturnType<typeof createTodolistAC>
   | ReturnType<typeof deleteTaskAC>
   | ReturnType<typeof createTaskAC>
@@ -57,10 +57,10 @@ export const tasksReducer = (state: TasksType = initialState, action: ActionsTyp
   }
 }
 
-export const deleteTasksFromTodolistAC = (todolistId: string) => ({type: 'delete_todolist', payload: {todolistId}} as const);
-
 export const deleteTaskAC = ({todolistId, taskId}: { todolistId: string, taskId: string }) => ({
   type: 'delete_task', payload: {todolistId, taskId}} as const);
+
+export const createTodolistFromTasks = () => ({} as const);
 
 export const createTaskAC = ({todolistId, title}: {todolistId: string, title: string}) => ({
 type: 'create_task', payload: {todolistId, title}} as const);

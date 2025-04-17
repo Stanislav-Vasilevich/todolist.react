@@ -25,15 +25,6 @@ beforeEach(() => {
     { id: todolistId1, title: 'What to learn', filter: 'all' },
     { id: todolistId2, title: 'What to buy', filter: 'all' },
   ]
-})
-
-test('correct todolist should be deleted', () => {
-  // action
-  const endState = todolistsReducer(startState, deleteTodolistAC(todolistId1));
-
-  // expect
-  expect(endState.length).toBe(1);
-  expect(endState[0].id).toBe(todolistId2);
 });
 
 test('correct todolist should be created', () => {
@@ -42,12 +33,20 @@ test('correct todolist should be created', () => {
 
   // action
   const endState = todolistsReducer(startState, createTodolistAC(v1(), title));
+  console.log('todolists: ', endState);
 
   // expect
   expect(endState.length).toBe(3);
   expect(endState[2].title).toBe(title);
 });
+test('correct todolist should be deleted', () => {
+  // action
+  const endState = todolistsReducer(startState, deleteTodolistAC(todolistId1));
 
+  // expect
+  expect(endState.length).toBe(1);
+  expect(endState[0].id).toBe(todolistId2);
+});
 test('correct todolist should change its title', () => {
   // data
   title = 'New title';
@@ -59,7 +58,6 @@ test('correct todolist should change its title', () => {
   expect(endState[0].title).toBe('What to learn');
   expect(endState[1].title).toBe(title);
 });
-
 test('correct todolist should change its filter', () => {
   // data
   filter = 'completed';
