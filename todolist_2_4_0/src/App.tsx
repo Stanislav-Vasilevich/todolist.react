@@ -13,7 +13,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import {NavButton} from './components/NavButton/NavButton';
 import {paper} from './Todolist.styles';
-import {createTheme, ThemeProvider, ThemeOptions} from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Switch from '@mui/material/Switch'
 import CssBaseline from '@mui/material/CssBaseline'
 import {
@@ -27,10 +27,8 @@ import {
   changeTaskStatusAC, changeTaskTitleAC,
   createTaskAC,
   deleteTaskAC,
-  // deleteTasksFromTodolistAC,
   tasksReducer
 } from './model/tasks-reducer';
-import {CssVarsThemeOptions} from '@mui/material/styles/createThemeWithVars';
 
 export type TaskType = {
   id: string
@@ -47,7 +45,6 @@ export type TasksType = {
   [key: string]: Array<TaskType>
 }
 type ThemeMode = 'dark' | 'light';
-
 
 const todolist_1 = v1();
 const todolist_2 = v1();
@@ -75,8 +72,8 @@ function App() {
   }
 
   const [todolist, dispatchTodolist] = useReducer(todolistsReducer, initialStateTodolists);
-
   const [tasks, dispatchTasks] = useReducer(tasksReducer, initialStateTasks);
+
   const [themeMode, setThemeMode] = useState<ThemeMode>('light');
   const theme = createTheme({
     palette: {
@@ -85,12 +82,23 @@ function App() {
         main: '#087EA4',
       },
     },
-  } as any)
-  // const theme = createTheme(themeOptions);
+  } as any);
+
+  const createTodolist = (title: string) => {
+    const newTodolistId = v1();
+    const action = createTodolistAC(newTodolistId, title);
+
+    dispatchTodolist(action);
+    dispatchTasks(action);
+  }
+  const deleteTodolist = (todolistId: string) => {
+    dispatchTodolist(deleteTodolistAC(todolistId));
+    dispatchTasks(deleteTodolistAC(todolistId));
+  }
   const filterTasks = (todolistId: string, filter: FilteredTaskType) => {
     dispatchTodolist(changeTodolistFilterAC({id: todolistId, filter}));
   }
-  const createTask = (todolistId: string, title: string) => {
+  const createTask = (title: string, todolistId: string) => {
     dispatchTasks(createTaskAC({todolistId, title}));
   }
   const deleteTask = (todolistId: string, taskId: string) => {
@@ -105,28 +113,13 @@ function App() {
       changeTaskStatusAC({ todolistId, taskId, isDone })
     )}
 
-  const deleteTodolist = (todolistId: string) => {
-    dispatchTodolist(deleteTodolistAC(todolistId));
-    dispatchTasks(deleteTasksFromTodolistAC({todolistId}));
-  }
-
   const changeTaskTitle = (todolistId: string, taskId: string, title: string) => {
     dispatchTasks(changeTaskTitleAC({todolistId, taskId, title}));
   }
-
-  const createTodolist = (title: string) => {
-    const newTodolistId = v1();
-    const action = createTodolistAC(newTodolistId, title);
-
-    dispatchTodolist(action);
-    dispatchTasks({...tasks, [action.payload.id]: []});
-  }
-
   const changeTodolistTitle = (todolistId: string, title: string) => {
     const action = changeTodolistTitleAC({id: todolistId, title});
     dispatchTodolist(action);
   }
-
   const changeMode = () => {
     setThemeMode(themeMode === 'light' ? 'dark' : 'light');
   }

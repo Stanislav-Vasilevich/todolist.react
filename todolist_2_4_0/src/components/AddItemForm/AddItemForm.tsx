@@ -16,8 +16,6 @@ const AddItemForm: React.FC<PropsType> = ({todolistId, createItem, minCharter, m
   const [error, setError] = useState('');
 
   const updateTitle = (e) => {
-    console.log('e: ', e.currentTarget.value);
-
     setTitle(e.currentTarget.value);
   }
 

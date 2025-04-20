@@ -10,11 +10,11 @@ import {
 } from './todolists-reducer';
 
 // start data
-let title: string
-let todolistId1: string
-let todolistId2: string
-let startState: TodolistType[] = []
-let filter: FilteredTaskType
+let title: string;
+let todolistId1: string;
+let todolistId2: string;
+let startState: TodolistType[] = [];
+let filter: FilteredTaskType;
 
 // restart data
 beforeEach(() => {
@@ -30,10 +30,8 @@ beforeEach(() => {
 test('correct todolist should be created', () => {
   // data
   title = 'New todolist';
-
   // action
   const endState = todolistsReducer(startState, createTodolistAC(v1(), title));
-  console.log('todolists: ', endState);
 
   // expect
   expect(endState.length).toBe(3);
@@ -68,4 +66,4 @@ test('correct todolist should change its filter', () => {
   // expect
   expect(endState[0].filter).toBe('all');
   expect(endState[1].filter).toBe(filter);
-})
+});
