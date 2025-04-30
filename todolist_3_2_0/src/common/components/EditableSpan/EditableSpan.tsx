@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField'
-import {type ChangeEvent, useState} from 'react'
+import {ChangeEvent, useState} from 'react'
 
 type Props = {
   value: string
