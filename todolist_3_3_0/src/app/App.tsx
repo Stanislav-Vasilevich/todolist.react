@@ -1,6 +1,6 @@
 import './App.css'
 import {Main} from '@/app/Main'
-import {Header} from '@/common/components/Header/Header'
+import {Header} from '@/common/components'
 import {useAppSelector} from '@/common/hooks/useAppSelector'
 import {getTheme} from '@/common/theme/theme'
 import CssBaseline from '@mui/material/CssBaseline'
