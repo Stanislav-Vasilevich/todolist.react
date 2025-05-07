@@ -1,4 +1,4 @@
-import {type ChangeEvent, type KeyboardEvent, useState} from 'react'
+import {ChangeEvent, KeyboardEvent, useState} from 'react'
 import TextField from '@mui/material/TextField'
 import AddBoxIcon from '@mui/icons-material/AddBox'
 import IconButton from '@mui/material/IconButton'
@@ -12,7 +12,8 @@ export const CreateItemForm = ({ onCreateItem }: Props) => {
   const [error, setError] = useState<string | null>(null)
 
   const createItemHandler = () => {
-    const trimmedTitle = title.trim()
+    const trimmedTitle = title.trim();
+
     if (trimmedTitle !== '') {
       onCreateItem(trimmedTitle)
       setTitle('')
@@ -42,7 +43,8 @@ export const CreateItemForm = ({ onCreateItem }: Props) => {
                    helperText={error}
                    onChange={changeTitleHandler}
                    onKeyDown={createItemOnEnterHandler}/>
-        <IconButton onClick={createItemHandler} color={'primary'}>
+        <IconButton onClick={createItemHandler}
+                    color={'primary'}>
           <AddBoxIcon />
         </IconButton>
       </div>
