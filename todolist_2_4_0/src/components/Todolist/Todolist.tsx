@@ -2,8 +2,7 @@ import * as React from 'react';
 import TodolistTitle from '../TodolistTitle/TodolistTitle';
 import TasksList from '../TaskList/TaskList';
 import FilterButtons from '../FilterButtons/FilterButtons';
-import {TasksType} from '../../../../todolist_2_1/src/App';
-import {FilteredTaskType} from '../../App';
+import {FilteredTaskType, TaskType} from '../../App';
 import s from './Todolist.module.css';
 import FilterSelect from '../FilterSelect/FilterSelect';
 import AddItemForm from '../AddItemForm/AddItemForm';
@@ -14,7 +13,7 @@ import IconButton from '@mui/material/IconButton';
 type PropsType = {
   id: string
   title: string
-  tasks: Array<TasksType>
+  tasks: TaskType[]
   deleteTask: (todolistId: string, id: string) => void
   changeTaskStatus: (todolistId: string, id: string, isDone: boolean) => void
   createTask: (todolistId: string, title: string) => void
