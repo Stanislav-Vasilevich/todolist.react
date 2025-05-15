@@ -1,5 +1,5 @@
 import {instance} from '@/common/instance';
-import {DomainTask, GetTasksResponse} from '@/features/todolists/api/tasksApi.types.ts';
+import {DomainTask, GetTasksResponse, UpdateTaskModel} from '@/features/todolists/api/tasksApi.types.ts';
 import {BaseResponse} from '@/common/types';
 
 export const tasksApi = {
@@ -18,19 +18,24 @@ export const tasksApi = {
     const {todolistId, taskId, title} = payload
 
     return instance.put<BaseResponse<{item: DomainTask}>>(`/todo-lists/${todolistId}/tasks/${taskId}`, {title})
+  },
+  changeTaskStatus(payload: {todolistId: string, taskId: string, model: UpdateTaskModel}) {
+    const {todolistId, taskId, model} = payload
+
+    return instance.put<BaseResponse<{item: DomainTask}>>(`/todo-lists/${todolistId}/tasks/${taskId}`, model)
   }
 }
 
 /*
-    const todolists2 = [
+    const todolists = [
       {id: 'todo1', title: 'JavaScript', filter: 'all'},
       {id: 'todo2', title: 'what', filter: 'active'},
     ]
 
-    const tasks2 = {
+    const tasks = {
       [todo1]: [
-        {id: 'kjlkjasdf', title: 'map', isDone: false},
-        {id: 'kjsdf', title: 'filter', isDone: false},
+        {id: 'task1', title: 'map', isDone: false},
+        {id: 'task2', title: 'filter', isDone: false},
       ],
       [todo2]: [],
     }
